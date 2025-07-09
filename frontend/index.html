@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Tagger AI</title>
+</head>
+<body>
+  <h1>Upload an Image</h1>
+  <form method="POST" action="/predict" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required>
+    <button type="submit">Get Predictions</button>
+  </form>
+</body>
+</html>
