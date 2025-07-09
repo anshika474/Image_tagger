@@ -2,12 +2,45 @@
 <html>
 <head>
   <title>Image Tagger AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Upload an Image</h1>
-  <form method="POST" action="/predict" enctype="multipart/form-data">
-    <input type="file" name="image" accept="image/*" required>
-    <button type="submit">Get Predictions</button>
-  </form>
+   <div class="background-shapes">
+    <!-- Decorative shapes -->
+    <div class="shape" style="top: 20%; left: 10%;"></div>
+    <div class="shape" style="top: 60%; left: 70%;"></div>
+    <div class="shape" style="top: 80%; left: 30%;"></div>
+    <div class="shape" style="top: 40%; left: 85%;"></div>
+  </div>
+
+  <div class="glass-card">
+    <h1>Image Tagger</h1>
+    <p>An AI powered classification of your images.Upload an image to identify the top 3 predicted categories using MobileNet.</p>
+  </div>
+
+  
+  <section class="upload-wrapper">
+    <div class="upload-section">
+      <h2>Upload an Image</h2>
+      <form method="POST" action="/predict" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Get Predictions</button>
+      </form>
+    </div>
+  </section>
+  {% if predictions %}
+    <div class="results-list">
+      <h3>Predictions:</h3>
+      <ul>
+        {% for pred in predictions %}
+          <li>{{ pred }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
+  <script src="script.js"></script>
 </body>
 </html>
