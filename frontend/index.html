@@ -25,11 +25,22 @@
     <div class="upload-section">
       <h2>Upload an Image</h2>
       <form method="POST" action="/predict" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" required>
+        <div class="custom-file-upload">
+          <input type="file" id="imageInput" name="image" accept="image/*" required onchange="previewImage(event)" hidden>
+          <label for="imageInput">
+            <span>Choose an Image</span>
+          </label>
+        </div>
+         
+         <div class="image-preview">
+          <img id="preview" src="#" alt="Image preview" style="display:none; max-width: 100%; border-radius: 10px;" />
+         </div>
         <button type="submit">Get Predictions</button>
       </form>
     </div>
   </section>
+  <div id="loader" class="loader" style="display: none;"></div>
+
   {% if predictions %}
     <div class="results-list">
       <h3>Predictions:</h3>
@@ -40,7 +51,15 @@
       </ul>
     </div>
   {% endif %}
-  
+  <script>
+  const form = document.querySelector('form');
+  const loader = document.getElementById('loader');
+
+  form.addEventListener('submit', () => {
+    loader.style.display = 'block'; // show spinner
+  });
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>

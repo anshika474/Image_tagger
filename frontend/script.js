@@ -1,3 +1,17 @@
+function previewImage(event) {
+    const input = event.target;
+    const preview = document.getElementById('preview');
+
+    const file = input.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 async function uploadImage() {
   const input = document.getElementById('imageInput');
   const file = input.files[0];
@@ -36,3 +50,8 @@ async function uploadImage() {
     console.error(err);
   }
 }
+
+form.addEventListener('submit', () => {
+  loader.style.display = 'block';
+  form.querySelector('button').disabled = true;
+});

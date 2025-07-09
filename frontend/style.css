@@ -34,6 +34,37 @@ h1, h2, h3 {
   50% { transform: translateY(-30px); }
 }
 
+
+.custom-file-upload label {
+  display: inline-block;
+  padding: 16px 30px;
+  background-color: white;
+  border: 2px dashed #fc99bf;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Quicksand', sans-serif;
+  color: #333;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.custom-file-upload label:hover {
+  background-color: #ffeae0;
+  transform: scale(1.02);
+}
+
+.custom-file-upload span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;  
+}
+
 /* Glass card */
 .glass-card {
   position: relative;
@@ -42,10 +73,13 @@ h1, h2, h3 {
   padding: 60px 40px;
   width: 80%;
   max-width: 800px;
-  background: rgba(227, 199, 200, 0.2);
-  backdrop-filter: blur(12px);
+  
+  background: #FFFFFF25;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
   text-align: center;
+  overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   color: #333;
 }
@@ -53,17 +87,24 @@ h1, h2, h3 {
 
 .upload-wrapper {
   position: relative;
+  align-self: center;
   z-index: 2;
-  background-color: #fce4ec;
+  background-color: white;
   margin-top: 60px;
   padding: 60px 0;
   border-top-left-radius: 80px;
   border-top-right-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
 }
 
 /* Upload card */
 .upload-section {
-  background: white;
+  background: #fdc5af;
   width: 320px;
   margin: 0 auto;
   padding: 30px 20px;
@@ -78,6 +119,19 @@ h1, h2, h3 {
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
 }
 
+.image-preview {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.image-preview img {
+  max-width: 300px;
+  max-height: 300px;
+  border: 2px dashed #ccc;
+  padding: 10px;
+  background: #fff;
+}
+
 input[type="file"] {
   display: block;
   margin: 16px auto;
@@ -85,7 +139,7 @@ input[type="file"] {
 }
 
 button {
-  background-color: #ff7f50;
+  background-color: #fc95a4;
   color: white;
   border: none;
   padding: 10px 22px;
@@ -98,6 +152,20 @@ button {
 
 button:hover {
   background-color: #e96b3f;
+}
+
+.loader {
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #ff7f50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 /* Results list */
