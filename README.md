@@ -25,4 +25,5 @@ Image_tagger/
 │ └── script.js
 ├── app.py
 ├── model.py
+├── requirements.txt
 └── README.md
