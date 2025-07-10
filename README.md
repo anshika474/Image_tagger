@@ -19,11 +19,15 @@ A lightweight web application that allows users to upload an image and receive p
 ## 📁 Directory Structure
 
 Image_tagger/
-├── frontend/
+├── _pycache_/
+├── templates/
 │ └── index.html
+├── static/
 │ └── style.css
 │ └── script.js
+├── uploads/
 ├── app.py
 ├── model.py
+├── imagenet_classes.txt
 ├── requirements.txt
 └── README.md
